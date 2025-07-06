@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState, useEffect } from 'react';
 import React from 'react';
 
 // Lazy load the Spline component for better performance
@@ -12,6 +12,44 @@ interface InteractiveRobotSplineProps {
 }
 
 export function InteractiveRobotSpline({ scene, className }: InteractiveRobotSplineProps) {
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    console.log('🚀 Spline component mounting with scene:', scene);
+    setIsLoading(true);
+    setError(null);
+  }, [scene]);
+
+  const handleLoad = () => {
+    console.log('✅ Spline scene loaded successfully');
+    setIsLoading(false);
+  };
+
+  const handleError = (error: any) => {
+    console.error('❌ Spline scene failed to load:', error);
+    setError('Failed to load 3D scene');
+    setIsLoading(false);
+  };
+
+  if (error) {
+    return (
+      <div className={`w-full h-full flex flex-col items-center justify-center bg-background text-foreground ${className}`}>
+        <div className="text-destructive mb-4">⚠️ {error}</div>
+        <button 
+          onClick={() => {
+            setError(null);
+            setIsLoading(true);
+            console.log('🔄 Retrying Spline scene load');
+          }}
+          className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
+
   return (
     <Suspense
       fallback={
@@ -24,10 +62,19 @@ export function InteractiveRobotSpline({ scene, className }: InteractiveRobotSpl
         </div>
       }
     >
-      <Spline
-        scene={scene}
-        className={className} 
-      />
+      <div className="relative w-full h-full">
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-background/80 z-10">
+            <div className="text-foreground">Loading robot...</div>
+          </div>
+        )}
+        <Spline
+          scene={scene}
+          className={className}
+          onLoad={handleLoad}
+          onError={handleError}
+        />
+      </div>
     </Suspense>
   );
 }
