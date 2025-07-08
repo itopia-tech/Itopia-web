@@ -28,9 +28,9 @@ export const validateForm = (formData: FormData): string | null => {
 
 export const sendEmail = async (formData: FormData): Promise<void> => {
   // EmailJS configuration - Replace with your actual credentials
-  const serviceId = 'YOUR_SERVICE_ID';
-  const templateId = 'YOUR_TEMPLATE_ID';
-  const publicKey = 'YOUR_PUBLIC_KEY';
+  const serviceId = 'service_74myint';
+  const templateId = 'template_zoiegoq';
+  const publicKey = 'EKkaZQOUrWN6-7umN';
 
   const templateParams = {
     from_name: formData.name,
