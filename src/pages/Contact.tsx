@@ -55,7 +55,7 @@ const Contact = () => {
   const contactInfo = [
     {
       title: 'Email',
-      value: 'contacto@itopia.com',
+      value: 'contacto.itopia@gmail.com',
       icon: '📧'
     },
     {
@@ -65,7 +65,7 @@ const Contact = () => {
     },
     {
       title: 'Ubicación',
-      value: 'Ciudad de México, México',
+      value: 'Montevideo, Uruguay',
       icon: '📍'
     },
     {
