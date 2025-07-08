@@ -30,7 +30,7 @@ export const sendEmail = async (formData: FormData): Promise<void> => {
   // EmailJS configuration - Replace with your actual credentials
   const serviceId = 'service_74myint';
   const templateId = 'template_zoiegoq';
-  const publicKey = 'EKkaZQOUrWN6-7umN';
+  const publicKey = 'UdI24sHBOfGxdSLI5';
 
   const templateParams = {
     from_name: formData.name,
