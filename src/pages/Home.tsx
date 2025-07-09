@@ -39,7 +39,7 @@ const Home = () => {
               para llevar tu empresa al futuro digital.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="text-lg px-8">
+              <Button asChild variant="outline" size="lg" className="text-lg px-8">
                 <Link to="/services">Nuestros Servicios</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-lg px-8">
