@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/SEOHead';
+import { seoData, serviceStructuredData } from '@/utils/seoData';
 
 const Services = () => {
   const mainServices = [
@@ -45,6 +47,14 @@ const Services = () => {
 
   return (
     <div className="min-h-screen py-20 px-6">
+      <SEOHead
+        title={seoData.services.title}
+        description={seoData.services.description}
+        keywords={seoData.services.keywords}
+        ogTitle={seoData.services.ogTitle}
+        ogDescription={seoData.services.ogDescription}
+        structuredData={serviceStructuredData}
+      />
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16 pt-16">

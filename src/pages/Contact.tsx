@@ -1,10 +1,19 @@
 import React from 'react';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { ContactInfo } from '@/components/contact/ContactInfo';
+import { SEOHead } from '@/components/SEOHead';
+import { seoData } from '@/utils/seoData';
 
 const Contact = () => {
   return (
     <div className="min-h-screen py-20 px-6">
+      <SEOHead
+        title={seoData.contact.title}
+        description={seoData.contact.description}
+        keywords={seoData.contact.keywords}
+        ogTitle={seoData.contact.ogTitle}
+        ogDescription={seoData.contact.ogDescription}
+      />
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16 pt-16">

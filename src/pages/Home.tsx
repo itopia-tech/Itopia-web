@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { SEOHead } from '@/components/SEOHead';
+import { seoData, organizationStructuredData } from '@/utils/seoData';
 
 const Home = () => {
   const services = [
@@ -24,6 +26,14 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title={seoData.home.title}
+        description={seoData.home.description}
+        keywords={seoData.home.keywords}
+        ogTitle={seoData.home.ogTitle}
+        ogDescription={seoData.home.ogDescription}
+        structuredData={organizationStructuredData}
+      />
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center max-w-4xl mx-auto">

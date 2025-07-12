@@ -1,9 +1,18 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { SEOHead } from '@/components/SEOHead';
+import { seoData } from '@/utils/seoData';
 
 const About = () => {
   return (
     <div className="min-h-screen py-20 px-6">
+      <SEOHead
+        title={seoData.about.title}
+        description={seoData.about.description}
+        keywords={seoData.about.keywords}
+        ogTitle={seoData.about.ogTitle}
+        ogDescription={seoData.about.ogDescription}
+      />
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center mb-16 pt-16">
